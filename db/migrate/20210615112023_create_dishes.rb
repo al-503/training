@@ -4,7 +4,7 @@ class CreateDishes < ActiveRecord::Migration[6.1]
       t.string :name
       t.float :price
       t.integer :preptime
-      t.text :descritpion
+      t.string :description
 
       t.timestamps
     end

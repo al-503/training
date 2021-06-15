@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 gem 'pg'
 
+gem 'devise'
+
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
