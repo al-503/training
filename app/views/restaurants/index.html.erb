@@ -1,0 +1,13 @@
+<h1>helo from index</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="cards">
+    <div class="card">
+      <h3><%= restaurant.full_name%></h3>
+        <p><%= restaurant.speciality%></p>
+        <p><%= restaurant.address %></p>
+        <p><%= restaurant.phone_number%></p>
+    </div>
+  </div>
+<% end %>
+  

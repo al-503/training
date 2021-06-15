@@ -1,0 +1,12 @@
+.cards {
+display: flex;
+flex-direction: column;
+width: 35%;
+margin: 0 auto;
+}
+.card {
+  text-align: center;
+  box-shadow: 2px 2px 4px black;
+  padding: 8px;
+  margin-top: 10px;
+}
