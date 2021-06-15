@@ -1,0 +1,2 @@
+class Dishe < ApplicationRecord
+end

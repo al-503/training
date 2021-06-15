@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  speciality: MyString
+  full_name: MyString
+  phone_number: MyString
+  chef: MyString
+  menu: one
+  dishe: one
+
+two:
+  speciality: MyString
+  full_name: MyString
+  phone_number: MyString
+  chef: MyString
+  menu: two
+  dishe: two
