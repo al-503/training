@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -148,6 +149,8 @@ menu6.save!
 # restaurant
 
 crocodillo = Restaurant.create!(full_name: "il Crocodillo", speciality: "Italian", address:"4 rue du général Guillaudot, Rennes", phone_number:"0615784952", email:"crocodillo@test.fr", dishe: napolitaine, menu:menu1)
+file = File.open("db/fixtures/restau/il_cocodillo.jpeg")
+crocodillo.photo.attach(io: file, filename: "il_cocodillo.jpeg", content_type: 'image/png')
 crocodillo.save!
 
 el_caliente = Restaurant.create!(full_name: "el Caliente", speciality: "Mexican", address:" 25 Boulevard de Metz 35, 35700 Rennes", phone_number:"0645478952", email:"caliente@test.fr", dishe: tacos, menu: menu2)
