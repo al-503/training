@@ -1,5 +1,5 @@
 <div class="banner">
-  <%= @restaurant.photo.key %>
+ <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %>
 </div>
 
 <div class="content">
