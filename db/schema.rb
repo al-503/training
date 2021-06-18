@@ -33,11 +33,9 @@ ActiveRecord::Schema.define(version: 2021_06_15_141750) do
   create_table "orders", force: :cascade do |t|
     t.integer "number"
     t.float "price"
-    t.integer "rstaurant_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["rstaurant_id"], name: "index_orders_on_rstaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -71,7 +69,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_141750) do
   end
 
   add_foreign_key "menus", "dishes", column: "dishe_id"
-  add_foreign_key "orders", "rstaurants"
   add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "dishes", column: "dishe_id"
   add_foreign_key "restaurants", "menus"

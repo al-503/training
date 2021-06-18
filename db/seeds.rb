@@ -37,13 +37,13 @@ user6.save!
 
 #dishes crocodillo  
 #crocodillo_dish = Dishe.create!([{
-#  name: "Napolitaine",
+  #  name: "Napolitaine",
 #  price: 9,
 #  preptime: 15,
 #  description:"tomate, olive, mozzarella"
 #},
 #{
-#  name: "Reine",
+  #  name: "Reine",
 #  price: 9,
 #  preptime: 15,
 #  description:"tomate, olive, mozzarella, jambon, champigon"
@@ -149,8 +149,6 @@ menu6.save!
 # restaurant
 
 crocodillo = Restaurant.create!(full_name: "il Crocodillo", speciality: "Italian", address:"4 rue du général Guillaudot, Rennes", phone_number:"0615784952", email:"crocodillo@test.fr", dishe: napolitaine, menu:menu1)
-file = File.open("db/fixtures/restau/il_cocodillo.jpeg")
-crocodillo.photo.attach(io: file, filename: "il_cocodillo.jpeg", content_type: 'image/png')
 crocodillo.save!
 
 el_caliente = Restaurant.create!(full_name: "el Caliente", speciality: "Mexican", address:" 25 Boulevard de Metz 35, 35700 Rennes", phone_number:"0645478952", email:"caliente@test.fr", dishe: tacos, menu: menu2)
@@ -167,4 +165,3 @@ yoko.save!
 
 the_a_dream = Restaurant.create!(full_name: "the A Dream", speciality: "American", address:"90 Rue de Châteaugiron, 35000 Rennes", phone_number:"0620147954", email:"theadream@test.fr", dishe: cheese, menu: menu6) 
 the_a_dream.save!
-
