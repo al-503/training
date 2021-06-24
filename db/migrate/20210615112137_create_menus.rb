@@ -3,7 +3,7 @@ class CreateMenus < ActiveRecord::Migration[6.1]
     create_table :menus do |t|
       t.float :price
       t.string :name
-      t.references :dishe, null: false, foreign_key: true
+      t.references :restaurant_menu, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -10,33 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_141750) do
+ActiveRecord::Schema.define(version: 2021_06_24_155738) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.integer "preptime"
     t.string "description"
+    t.integer "restaurant_dishe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_dishe_id"], name: "index_dishes_on_restaurant_dishe_id"
   end
 
   create_table "menus", force: :cascade do |t|
     t.float "price"
     t.string "name"
-    t.integer "dishe_id", null: false
+    t.integer "restaurant_menu_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["dishe_id"], name: "index_menus_on_dishe_id"
+    t.index ["restaurant_menu_id"], name: "index_menus_on_restaurant_menu_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "number"
     t.float "price"
+    t.integer "restaurant_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "restaurant_dishes", force: :cascade do |t|
+    t.integer "dishe_id", null: false
+    t.integer "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dishe_id"], name: "index_restaurant_dishes_on_dishe_id"
+    t.index ["restaurant_id"], name: "index_restaurant_dishes_on_restaurant_id"
+  end
+
+  create_table "restaurant_menus", force: :cascade do |t|
+    t.integer "menu_id", null: false
+    t.integer "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["menu_id"], name: "index_restaurant_menus_on_menu_id"
+    t.index ["restaurant_id"], name: "index_restaurant_menus_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -68,8 +90,14 @@ ActiveRecord::Schema.define(version: 2021_06_15_141750) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "menus", "dishes", column: "dishe_id"
+  add_foreign_key "dishes", "restaurant_dishes", column: "restaurant_dishe_id"
+  add_foreign_key "menus", "restaurant_menus"
+  add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "users"
+  add_foreign_key "restaurant_dishes", "dishes", column: "dishe_id"
+  add_foreign_key "restaurant_dishes", "restaurants"
+  add_foreign_key "restaurant_menus", "menus"
+  add_foreign_key "restaurant_menus", "restaurants"
   add_foreign_key "restaurants", "dishes", column: "dishe_id"
   add_foreign_key "restaurants", "menus"
 end
