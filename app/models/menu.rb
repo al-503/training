@@ -1,4 +1,3 @@
 class Menu < ApplicationRecord
-  belongs_to :dishe
-
+  has_many :restaurant_menu
 end

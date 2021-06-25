@@ -17,19 +17,15 @@ ActiveRecord::Schema.define(version: 2021_06_24_155738) do
     t.float "price"
     t.integer "preptime"
     t.string "description"
-    t.integer "restaurant_dishe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["restaurant_dishe_id"], name: "index_dishes_on_restaurant_dishe_id"
   end
 
   create_table "menus", force: :cascade do |t|
     t.float "price"
     t.string "name"
-    t.integer "restaurant_menu_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["restaurant_menu_id"], name: "index_menus_on_restaurant_menu_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -90,8 +86,6 @@ ActiveRecord::Schema.define(version: 2021_06_24_155738) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "dishes", "restaurant_dishes", column: "restaurant_dishe_id"
-  add_foreign_key "menus", "restaurant_menus"
   add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "users"
   add_foreign_key "restaurant_dishes", "dishes", column: "dishe_id"

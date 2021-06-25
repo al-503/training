@@ -7,6 +7,8 @@ require "open-uri"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+RestaurantDishe.destroy_all
+RestaurantMenu.destroy_all
 User.destroy_all
 Restaurant.destroy_all
 Menu.destroy_all
@@ -146,6 +148,7 @@ menu5.save!
 menu6 = Menu.create!(name:"plat + boisson", price: 11.30, dishe: cheese)
 menu6.save!
 
+
 # restaurant
 
 crocodillo = Restaurant.create!(full_name: "il Crocodillo", speciality: "Italian", address:"4 rue du général Guillaudot, Rennes", phone_number:"0615784952", email:"crocodillo@test.fr", dishe: napolitaine, menu:menu1)
@@ -165,3 +168,11 @@ yoko.save!
 
 the_a_dream = Restaurant.create!(full_name: "the A Dream", speciality: "American", address:"90 Rue de Châteaugiron, 35000 Rennes", phone_number:"0620147954", email:"theadream@test.fr", dishe: cheese, menu: menu6) 
 the_a_dream.save!
+
+# restaurant_dishe
+crocodillo_dishe1 = RestaurantDishe.create!(restaurant: crocodillo, dishe: napolitaine)
+crocodillo_dishe1.save!
+# restaurant_menu
+
+crocodillo_menu1 = RestaurantMenu.create!(restaurant: crocodillo, menu: menu1)
+crocodillo_menu1.save!
